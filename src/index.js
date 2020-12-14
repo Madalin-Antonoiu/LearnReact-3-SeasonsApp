@@ -22,6 +22,14 @@ class Application extends React.Component {
     );
   }
 
+  componentDidMount() {
+    console.log("My Component was rendered to the screen.");
+  }
+
+  componentDidUpdate() {
+    console.log("My Component got updated - it rerendered.");
+  }
+
   // React says we have to define render
   render() {
     //Case 2
@@ -39,9 +47,9 @@ class Application extends React.Component {
 
     return (
       <div>
-        <div class="ui segment">
-          <div class="ui active inverted dimmer">
-            <div class="ui loader"></div>
+        <div className="ui segment">
+          <div className="ui active inverted dimmer">
+            <div className="ui loader"></div>
           </div>
           <p>Please click on "Allow" on the location popup.</p>
         </div>
