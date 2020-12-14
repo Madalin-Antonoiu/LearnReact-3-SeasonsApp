@@ -1,7 +1,17 @@
 import React from "react";
 
-const SeasonDisplay = () => {
-  return <div>What season?</div>;
+const getSeason = (lat, month) => {
+  if (month > 2 && month < 9) {
+    // If summer months
+    return lat > 0 ? "summer" : "winter"; // in the northern hemisphere
+  } else {
+    return lat > 0 ? "winter" : "summer";
+  }
+};
+
+const SeasonDisplay = (props) => {
+  const season = getSeason(props.lat, new Date().getMonth());
+  return <div>{season}</div>;
 };
 
 export default SeasonDisplay;
