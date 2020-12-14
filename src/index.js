@@ -1,17 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-//import SeasonDisplay from "./SeasonDisplay";
 
-//Class-based component
+// Babel takes all JSX code and create regular JS code
 class Application extends React.Component {
-  // Not specific to React, but this is the first thing called when class is created
-  // Not the only way to initialize state, we will see later
-  constructor(props) {
-    super(props);
+  state = { lat: null, errorMessage: "" };
 
-    this.state = { lat: null, errorMessage: "" };
-  }
-
+  // Perfect for data loading!
   componentDidMount() {
     console.log("My Component was rendered to the screen.");
 
@@ -19,10 +13,6 @@ class Application extends React.Component {
       (position) => this.setState({ lat: position.coords.latitude }),
       (err) => this.setState({ errorMessage: err.message })
     );
-  }
-
-  componentDidUpdate() {
-    console.log("My Component got updated - it rerendered.");
   }
 
   // React says we have to define render
