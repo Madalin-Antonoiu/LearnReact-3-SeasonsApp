@@ -1,5 +1,5 @@
 {
-  "name": "seasons",
+  "name": "seasons-app",
   "version": "0.1.0",
   "private": true,
   "installConfig": {
@@ -26,5 +26,5 @@
     "not op_mini all"
   ],
   "keywords": [],
-  "description": "Bootstrap files you get with `npx create-react-app new my-awesome-app`"
+  "description": ""
 }
