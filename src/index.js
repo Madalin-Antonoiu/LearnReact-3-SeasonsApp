@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 import SeasonDisplay from "./SeasonDisplay";
+import Spinner from "./Spinner";
 
 class Application extends React.Component {
   state = { lat: null, errorMessage: "" };
@@ -15,32 +17,26 @@ class Application extends React.Component {
     );
   }
 
-  // React says we have to define render
-  render() {
-    //Case 2
+  // Helper
+  renderContent() {
+    //Case 1
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
 
-    //Case 1
+    //Case 2
     if (!this.state.errorMessage && this.state.lat) {
       return <SeasonDisplay lat={this.state.lat} />;
       // return <div>Latitude: {this.state.lat}</div>;
     }
 
     //Case 3
-    //return <div>Loading...</div>;
+    return <Spinner text="Please accept location request" />;
+  }
 
-    return (
-      <div>
-        <div className="ui segment">
-          <div className="ui active inverted dimmer">
-            <div className="ui loader"></div>
-          </div>
-          <p>Please click on "Allow" on the location popup.</p>
-        </div>
-      </div>
-    );
+  // React says we have to define render, try and avoid conditions here
+  render() {
+    return <div className="some-class">{this.renderContent()}</div>;
   }
 }
 
