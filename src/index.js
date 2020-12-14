@@ -24,11 +24,27 @@ class Application extends React.Component {
 
   // React says we have to define render
   render() {
+    //Case 2
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>Error: {this.state.errorMessage}</div>;
+    }
+
+    //Case 1
+    if (!this.state.errorMessage && this.state.lat) {
+      return <div>Latitude: {this.state.lat}</div>;
+    }
+
+    //Case 3
+    //return <div>Loading...</div>;
+
     return (
       <div>
-        Latitude : {this.state.lat}
-        <br />
-        Error: {this.state.errorMessage || "None"}
+        <div class="ui segment">
+          <div class="ui active inverted dimmer">
+            <div class="ui loader"></div>
+          </div>
+          <p>Please click on "Allow" on the location popup.</p>
+        </div>
       </div>
     );
   }
