@@ -1,25 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 //import SeasonDisplay from "./SeasonDisplay";
-
-//Functional component
-// const Application = () => {
-//   window.navigator.geolocation.getCurrentPosition(
-//     (position) => console.log(position),
-//     (err) => console.log(err)
-//   );
-
-//   return (
-//     <div>
-//       <div> Hi there!</div>
-//       <SeasonDisplay />
-//     </div>
-//   );
-// };
 
 //Class-based component
 class Application extends React.Component {
+  // Not specific to React, but this is the first thing called when class is created
+  // Not the only way to initialize state, we will see later
+  constructor(props) {
+    super(props);
+
+    this.state = { lat: null };
+  }
+
+  // React says we have to define render
   render() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => console.log(position),
